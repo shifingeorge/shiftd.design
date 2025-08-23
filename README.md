@@ -53,15 +53,15 @@ A modern, creative portfolio built with **React 19**, designed and developed b
    # or
    yarn install
 
-
-- Start the development server:
-npm start
-# or
-yarn start
+2. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
 
+## 📁 Project Structure
 
-
-📁 Project Structure
+```shell
 react_app/
 ├── public/             # Static assets
 ├── src/
@@ -76,11 +76,13 @@ react_app/
 ├── package.json        # Project dependencies and scripts
 ├── tailwind.config.js  # Tailwind CSS configuration
 └── vite.config.js      # Vite configuration
+```
 
+## 🧩 Adding Routes
 
-
-🧩 Adding Routes
 To add new routes to the application, update the Routes.jsx file:
+
+```jsx
 import { useRoutes } from "react-router-dom";
 import HomePage from "pages/HomePage";
 import AboutPage from "pages/AboutPage";
@@ -94,10 +96,10 @@ const ProjectRoutes = () => {
 
   return element;
 };
+```
 
+## 🎨 Styling
 
-
-🎨 Styling
 This project uses Tailwind CSS for styling. The configuration includes:
 - Forms plugin for form styling
 - Typography plugin for text styling
@@ -106,16 +108,16 @@ This project uses Tailwind CSS for styling. The configuration includes:
 - Fluid typography for responsive text
 - Animation utilities
 
-📱 Responsive Design
+## 📱 Responsive Design
 The app is built with responsive design using Tailwind CSS breakpoints.
 
-📦 Deployment
+## 📦 Deployment
 Build the application for production:
+```bash
 npm run build
+```
 
-
-
-🙏 Acknowledgments
+## 🙏 Acknowledgments
 - Designed & developed by Shifin — UI/UX Designer & Vibe Coder
 - Built with ❤️ using React 19, Vite, and Tailwind CSS
 - Inspired by creativity, strategy, and problem-solving
