@@ -63,22 +63,84 @@ yarn dev
 ## 📁 Project Structure
 
 ```shell
-shiftd.design/
-├── public/               # Static assets
-├── src/
-│   ├── components/       # Reusable UI components
-│   ├── pages/            # Page components
-│   ├── lib/              # Utilities & helpers
-│   ├── data/             # Typed data (projects, config)
-│   ├── styles/           # Tailwind & global styles
-│   ├── App.tsx           # Main app component
-│   ├── Routes.tsx        # App routes
-│   └── main.tsx          # Entry point
-├── siteConfig.ts         # Brand & meta config
-├── tailwind.config.ts    # Tailwind theme & plugins
-├── vite.config.ts        # Vite + path aliases
-├── tsconfig.json         # TS strict config
-└── package.json          # Dependencies & scripts
+shiftd portfolio
+├─ .env
+├─ README.md
+├─ favicon.ico
+├─ index.html
+├─ jsconfig.json
+├─ package.json
+├─ postcss.config.js
+├─ public
+│  ├─ assets
+│  │  └─ images
+│  │     └─ no_image.png
+│  ├─ favicon.ico
+│  ├─ manifest.json
+│  └─ robots.txt
+├─ src
+│  ├─ App.jsx
+│  ├─ Routes.jsx
+│  ├─ components
+│  │  ├─ AppIcon.jsx
+│  │  ├─ AppImage.jsx
+│  │  ├─ ErrorBoundary.jsx
+│  │  ├─ ScrollToTop.jsx
+│  │  └─ ui
+│  │     ├─ Button.jsx
+│  │     ├─ Checkbox.jsx
+│  │     ├─ Header.jsx
+│  │     ├─ Input.jsx
+│  │     └─ Select.jsx
+│  ├─ external.d.ts
+│  ├─ index.jsx
+│  ├─ pages
+│  │  ├─ NotFound.jsx
+│  │  ├─ about-process-evolution
+│  │  │  ├─ components
+│  │  │  │  ├─ CredentialsDownload.jsx
+│  │  │  │  ├─ PersonalIntro.jsx
+│  │  │  │  ├─ ProcessInsights.jsx
+│  │  │  │  ├─ ProfessionalTimeline.jsx
+│  │  │  │  ├─ SkillsMatrix.jsx
+│  │  │  │  ├─ TestimonialsSection.jsx
+│  │  │  │  ├─ ValuesFramework.jsx
+│  │  │  │  └─ WorkingStyles.jsx
+│  │  │  └─ index.jsx
+│  │  ├─ case-studies-hub-project-storytelling
+│  │  │  ├─ components
+│  │  │  │  ├─ CaseStudyCard.jsx
+│  │  │  │  ├─ DetailedCaseStudy.jsx
+│  │  │  │  ├─ FilterBar.jsx
+│  │  │  │  ├─ ProgressIndicator.jsx
+│  │  │  │  └─ StatsOverview.jsx
+│  │  │  └─ index.jsx
+│  │  ├─ homepage-creative-portfolio-hub
+│  │  │  ├─ components
+│  │  │  │  ├─ CallToAction.jsx
+│  │  │  │  ├─ CodeExperiments.jsx
+│  │  │  │  ├─ DesignGallery.jsx
+│  │  │  │  ├─ FeaturedCaseStudies.jsx
+│  │  │  │  ├─ HeroSection.jsx
+│  │  │  │  └─ SocialProof.jsx
+│  │  │  └─ index.jsx
+│  │  └─ work-with-me-collaboration-hub
+│  │     ├─ components
+│  │     │  ├─ AvailabilityStatus.jsx
+│  │     │  ├─ ConnectionChannels.jsx
+│  │     │  ├─ ContactForm.jsx
+│  │     │  ├─ FAQSection.jsx
+│  │     │  ├─ ProjectPlanner.jsx
+│  │     │  ├─ ServiceCard.jsx
+│  │     │  └─ TestimonialCard.jsx
+│  │     └─ index.jsx
+│  ├─ styles
+│  │  ├─ index.css
+│  │  └─ tailwind.css
+│  └─ utils
+│     └─ cn.js
+├─ tailwind.config.js
+└─ vite.config.ts
 ```
 
 ---
