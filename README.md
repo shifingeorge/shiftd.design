@@ -1,12 +1,8 @@
-
-```markdown
 # Shifin Portfolio — React 19 + TypeScript 5
 
 A modern, creative portfolio built with **React 19** and **TypeScript 5 (strict)**, designed and developed by **Shifin** — a UI/UX designer & creative coder who blends design vision with technical precision.
 
 > **Tagline:** *Designing experiences, coding vibes — solving problems with creativity and strategy.*
-
----
 
 ## 🎨 Brand & Style
 
