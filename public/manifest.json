@@ -1,15 +1,19 @@
 {
-  "short_name": "alena-portfolio",
-  "name": "alena-portfolio",
+  "name": "shiftd.design — Shifin",
+  "short_name": "shiftd.design",
+  "description": "UI/UX designer & vibe coder — black-first portfolio with red gradient accents.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#0b0b0f",
+  "background_color": "#0b0b0f",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "/favicon.ico",
+      "sizes": "16x16 24x24 32x32 48x48 64x64",
       "type": "image/x-icon"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
