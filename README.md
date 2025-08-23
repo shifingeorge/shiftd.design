@@ -1,6 +1,8 @@
-# Shifin Portfolio — React 19
 
-A modern, creative portfolio built with **React 19**, designed and developed by **Shifin** — a UI/UX designer & vibe coder who loves crafting landing pages, solving problems with strategy, and creating innovative solutions.
+```markdown
+# Shifin Portfolio — React 19 + TypeScript 5
+
+A modern, creative portfolio built with **React 19** and **TypeScript 5 (strict)**, designed and developed by **Shifin** — a UI/UX designer & creative coder who blends design vision with technical precision.
 
 > **Tagline:** *Designing experiences, coding vibes — solving problems with creativity and strategy.*
 
@@ -8,116 +10,133 @@ A modern, creative portfolio built with **React 19**, designed and developed b
 
 ## 🎨 Brand & Style
 
-- **Primary Color:** Black  
-- **Accent:** Gradient Red  
-- **Design Approach:** Minimal, bold, and immersive  
-- **Focus:** Landing pages, creative problem-solving, and strategic design
+- **Theme:** Dark‑first (black surfaces) with red accent + gradient utilities
+- **Fonts:** Space Grotesk (headings), Inter (body)
+- **Design Approach:** Minimal, bold, immersive
+- **Focus:** Landing pages, creative problem‑solving, and strategic design
 
 ---
 
 ## 🌐 Socials
 
-- [Instagram](https://instagram.com/)  
-- [GitHub](https://github.com/)  
-- [LinkedIn](https://linkedin.com/)  
+- [Instagram](https://instagram.com/)
+- [GitHub](https://github.com/)
+- [LinkedIn](https://linkedin.com/)
 - [Behance](https://behance.net/)
 
 ---
 
 ## 🚀 Features
 
-- **React 19** — Latest React version with new concurrent features and support for modern libraries
-- **Vite** — Lightning-fast build tool and development server
-- **Redux Toolkit** — State management with simplified Redux setup
-- **TailwindCSS** — Utility-first CSS framework with extensive customization
-- **React Router v6** — Declarative routing for React applications
-- **Data Visualization** — Integrated D3.js and Recharts for powerful data visualization
-- **Form Management** — React Hook Form for efficient form handling
-- **Animation** — Framer Motion for smooth UI animations
-- **Testing** — Jest and React Testing Library setup
+- **React 19** — Latest React with concurrent features
+- **TypeScript 5 (strict)** — Strong typing across `.ts`/`.tsx`
+- **Vite 5** — Lightning‑fast dev/build
+- **Tailwind CSS 3** — Dark mode via `class`, brand‑aligned theme
+- **React Router v6** — Declarative routing
+- **Framer Motion** — Smooth UI animations
+- **React Hook Form** — Efficient form handling
+- **Redux Toolkit** *(optional)* — Scalable state management
+- **D3.js / Recharts** *(optional)* — Data visualization
+- **Jest + RTL** *(optional)* — Testing setup
 
 ---
 
 ## 📋 Prerequisites
 
-- Node.js (v18.x or higher recommended for React 19)
+- **Node.js** ≥ 18.18 (Node 20 LTS recommended)
 - npm or yarn
 
 ---
 
 ## 🛠️ Installation
 
-1. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
+```bash
+# Install dependencies
+npm install
+# or
+yarn install
 
-2. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
+# Start development server
+npm run dev
+# or
+yarn dev
+```
+
+---
 
 ## 📁 Project Structure
 
 ```shell
-react_app/
-├── public/             # Static assets
+shiftd.design/
+├── public/               # Static assets
 ├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles and Tailwind configuration
-│   ├── App.jsx         # Main application component
-│   ├── Routes.jsx      # Application routes
-│   └── index.jsx       # Application entry point
-├── .env                # Environment variables
-├── index.html          # HTML template
-├── package.json        # Project dependencies and scripts
-├── tailwind.config.js  # Tailwind CSS configuration
-└── vite.config.js      # Vite configuration
+│   ├── components/       # Reusable UI components
+│   ├── pages/            # Page components
+│   ├── lib/              # Utilities & helpers
+│   ├── data/             # Typed data (projects, config)
+│   ├── styles/           # Tailwind & global styles
+│   ├── App.tsx           # Main app component
+│   ├── Routes.tsx        # App routes
+│   └── main.tsx          # Entry point
+├── siteConfig.ts         # Brand & meta config
+├── tailwind.config.ts    # Tailwind theme & plugins
+├── vite.config.ts        # Vite + path aliases
+├── tsconfig.json         # TS strict config
+└── package.json          # Dependencies & scripts
 ```
+
+---
 
 ## 🧩 Adding Routes
 
-To add new routes to the application, update the Routes.jsx file:
-
-```jsx
+```tsx
 import { useRoutes } from "react-router-dom";
-import HomePage from "pages/HomePage";
-import AboutPage from "pages/AboutPage";
+import HomePage from "pages/Home";
+import AboutPage from "pages/About";
 
-const ProjectRoutes = () => {
-  let element = useRoutes([
+export const AppRoutes = () =>
+  useRoutes([
     { path: "/", element: <HomePage /> },
     { path: "/about", element: <AboutPage /> },
-    // Add more routes as needed
   ]);
-
-  return element;
-};
 ```
+
+---
 
 ## 🎨 Styling
 
-This project uses Tailwind CSS for styling. The configuration includes:
-- Forms plugin for form styling
-- Typography plugin for text styling
-- Aspect ratio plugin for responsive elements
-- Container queries for component-specific responsive design
-- Fluid typography for responsive text
-- Animation utilities
+Tailwind CSS configuration includes:
+
+- `@tailwindcss/forms`
+- `@tailwindcss/typography`
+- `@tailwindcss/aspect-ratio`
+- `@tailwindcss/container-queries`
+- Brand‑aligned dark theme with red gradient utilities
+
+---
 
 ## 📱 Responsive Design
-The app is built with responsive design using Tailwind CSS breakpoints.
+
+- Fully responsive using Tailwind breakpoints
+- Mobile‑first approach with adaptive layouts
+
+---
 
 ## 📦 Deployment
-Build the application for production:
+
 ```bash
 npm run build
+# or
+yarn build
 ```
 
+Deploy the `dist/` folder to your hosting provider (Vercel, Netlify, etc.).
+
+---
+
 ## 🙏 Acknowledgments
-- Designed & developed by Shifin — UI/UX Designer & Vibe Coder
-- Built with ❤️ using React 19, Vite, and Tailwind CSS
-- Inspired by creativity, strategy, and problem-solving
+
+- Designed & developed by **Shifin** — UI/UX Designer & Creative Coder
+- Built with ❤️ using React 19, TypeScript 5, Vite, and Tailwind CSS
+- Inspired by creativity, strategy, and problem‑solving
+```
