@@ -1,161 +1,102 @@
-import React, { useEffect } from 'react';
-import { X, ExternalLink, Calendar, User } from 'lucide-react';
-import { gsap } from 'gsap';
-import { Project } from '../../types';
+import { useEffect } from 'react';
 
-interface ProjectModalProps {
-  project: Project;
+// If you already have a Project type in src/types, import it instead.
+// import type { Project } from '../../types';
+type Project = {
+  id?: string | number;
+  title: string;
+  description?: string;
+  tags?: string[];
+  cover?: string;
+  link?: string;
+  repo?: string;
+};
+
+type Props = {
+  isOpen: boolean;
   onClose: () => void;
-}
+  project: Project | null;
+};
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+export default function ProjectModal({ isOpen, onClose, project }: Props) {
   useEffect(() => {
-    // Animation on mount
-    gsap.fromTo('.modal-backdrop', 
-      { opacity: 0 },
-      { opacity: 1, duration: 0.3, ease: "power2.out" }
-    );
-    
-    gsap.fromTo('.modal-content',
-      { opacity: 0, scale: 0.8, y: 50 },
-      { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power3.out", delay: 0.1 }
-    );
-
-    // Lock body scroll
-    document.body.style.overflow = 'hidden';
-    
-    return () => {
-      document.body.style.overflow = 'unset';
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
     };
-  }, []);
+    if (isOpen) document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, onClose]);
 
-  const handleClose = () => {
-    gsap.to('.modal-content', {
-      opacity: 0,
-      scale: 0.8,
-      y: 50,
-      duration: 0.3,
-      ease: "power2.in",
-      onComplete: onClose
-    });
-    
-    gsap.to('.modal-backdrop', {
-      opacity: 0,
-      duration: 0.4,
-      ease: "power2.in"
-    });
-  };
+  if (!isOpen || !project) return null;
 
   return (
-    <div 
-      className="modal-backdrop fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-      onClick={handleClose}
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      onClick={onClose}
     >
-      <div 
-        className="modal-content bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div
+        className="relative z-10 w-[92vw] max-w-3xl rounded-xl border border-white/10 bg-neutral-900/90 p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="relative">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-64 object-cover rounded-t-2xl"
-          />
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-xl font-semibold">{project.title}</h3>
           <button
-            onClick={handleClose}
-            className="absolute top-4 right-4 p-2 bg-black/20 backdrop-blur-sm rounded-full text-white hover:bg-black/40 transition-colors"
+            onClick={onClose}
+            aria-label="Close"
+            className="rounded p-1 text-white/70 hover:text-white hover:bg-white/10"
           >
-            <X size={20} />
+            ✕
           </button>
         </div>
 
-        {/* Content */}
-        <div className="p-8">
-          {/* Title and Meta */}
-          <div className="mb-6">
-            <div className="flex items-center gap-4 mb-3">
-              <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
-                {project.category.replace('-', ' ').toUpperCase()}
+        {project.cover && (
+          <img
+            src={project.cover}
+            alt={project.title}
+            className="mt-4 w-full rounded-lg border border-white/10"
+          />
+        )}
+
+        {project.description && (
+          <p className="mt-4 text-white/80">{project.description}</p>
+        )}
+
+        {project.tags?.length ? (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {project.tags.map((t) => (
+              <span key={t} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/80">
+                {t}
               </span>
-              <div className="flex items-center gap-2 text-sm text-slate-500">
-                <Calendar size={16} />
-                {project.year}
-              </div>
-              {project.client && (
-                <div className="flex items-center gap-2 text-sm text-slate-500">
-                  <User size={16} />
-                  {project.client}
-                </div>
-              )}
-            </div>
-            
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              {project.title}
-            </h2>
-            
-            <p className="text-lg text-slate-600 leading-relaxed">
-              {project.longDescription}
-            </p>
+            ))}
           </div>
+        ) : null}
 
-          {/* Technologies */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold text-slate-900 mb-3">Technologies Used</h3>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Image Gallery */}
-          {project.images.length > 1 && (
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold text-slate-900 mb-3">Project Gallery</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {project.images.slice(1).map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`${project.title} - Image ${index + 2}`}
-                    className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-              >
-                <ExternalLink size={18} />
-                View Live Site
-              </a>
-            )}
-            
-            <button
-              onClick={handleClose}
-              className="flex items-center justify-center gap-2 border-2 border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-medium hover:border-slate-400 hover:bg-slate-50 transition-colors"
+        <div className="mt-6 flex gap-3">
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md bg-white text-black px-4 py-2 text-sm font-medium hover:opacity-90"
             >
-              Close
-            </button>
-          </div>
+              View Live
+            </a>
+          )}
+          {project.repo && (
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md border border-white/20 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
+            >
+              View Code
+            </a>
+          )}
         </div>
       </div>
     </div>
   );
-};
-
-export default ProjectModal;
+}

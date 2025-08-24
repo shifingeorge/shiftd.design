@@ -1,33 +1,15 @@
-import React from 'react';
-import { Heart } from 'lucide-react';
-
-const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export default function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="bg-slate-900 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center gap-2 text-slate-400 mb-4 md:mb-0">
-            <span>© {currentYear} John Doe. Made with</span>
-            <Heart size={16} className="text-red-500 animate-pulse" />
-            <span>and lots of coffee.</span>
-          </div>
-          
-          <button
-            onClick={scrollToTop}
-            className="text-slate-400 hover:text-white transition-colors text-sm"
-          >
-            Back to top ↑
-          </button>
+    <footer className="border-t border-white/10">
+      <div className="mx-auto max-w-6xl px-4 py-10 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <p className="text-white/60">
+          © {year} shiftd — UI/UX Designer & Vibe Coder
+        </p>
+        <div className="text-white/60 text-sm">
+          Built with React + Vite + Tailwind
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+} 
