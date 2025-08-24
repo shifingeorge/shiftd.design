@@ -10,7 +10,7 @@ import DockBar from './components/Layout/DockBar';
 export default function App() {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      <main className="pt-16">
+      <main>
         <Hero />
         <About />
         <Skills />
