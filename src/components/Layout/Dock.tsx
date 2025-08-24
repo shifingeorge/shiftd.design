@@ -135,7 +135,7 @@ function DockIcon({
 }: {
   className?: string;
   children: React.ReactNode;
-  isHovered?: MotionValue<number>; // accept, even if not used
+  isHovered?: MotionValue<number>;
 }) {
   return <div className={`flex items-center justify-center ${className}`}>{children}</div>;
 }
@@ -154,9 +154,7 @@ export default function Dock({
   return (
     <div
       className="
-        fixed z-50
-        right-4 translate-x-0
-        md:left-1/2 md:-translate-x-1/2 md:right-auto
+        fixed z-50 left-0 right-0
         pointer-events-none
       "
       style={{
@@ -164,41 +162,43 @@ export default function Dock({
       }}
       aria-label="Application dock container"
     >
-      <div
-        onMouseMove={(e) => mouseX.set(e.clientX)}
-        onMouseLeave={() => mouseX.set(Infinity)}
-        onTouchMove={(e) => {
-          if (e.touches?.[0]) mouseX.set(e.touches[0].clientX);
-        }}
-        onTouchEnd={() => mouseX.set(Infinity)}
-        className={`
-          ${className}
-          pointer-events-auto absolute bottom-0
-          flex items-end w-fit gap-4
-          rounded-2xl border border-white/10
-          bg-[#0b0b0f]/85 backdrop-blur px-3 pb-2
-          shadow-[0_2px_20px_rgba(0,0,0,0.35)]
-          overflow-visible
-        `}
-        style={{ height: panelHeight }}
-        role="toolbar"
-        aria-label="Application dock"
-      >
-        {items.map((item, index) => (
-          <DockItem
-            key={index}
-            onClick={item.onClick}
-            className={item.className}
-            mouseX={mouseX}
-            spring={spring}
-            distance={distance}
-            magnification={magnification}
-            baseItemSize={baseItemSize}
-          >
-            <DockIcon>{item.icon}</DockIcon>
-            <DockLabel>{item.label}</DockLabel>
-          </DockItem>
-        ))}
+      {/* Mobile: right aligned; md+: centered */}
+      <div className="flex justify-end md:justify-center px-4 md:px-0">
+        <div
+          onMouseMove={(e) => mouseX.set(e.clientX)}
+          onMouseLeave={() => mouseX.set(Infinity)}
+          onTouchMove={(e) => {
+            if (e.touches?.[0]) mouseX.set(e.touches[0].clientX);
+          }}
+          onTouchEnd={() => mouseX.set(Infinity)}
+          className={`
+            ${className}
+            pointer-events-auto
+            flex items-end w-fit gap-4
+            rounded-2xl border border-white/10
+            bg-[#0b0b0f]/85 backdrop-blur px-3 pb-2
+            shadow-[0_2px_20px_rgba(0,0,0,0.35)]
+          `}
+          style={{ height: panelHeight }}
+          role="toolbar"
+          aria-label="Application dock"
+        >
+          {items.map((item, index) => (
+            <DockItem
+              key={index}
+              onClick={item.onClick}
+              className={item.className}
+              mouseX={mouseX}
+              spring={spring}
+              distance={distance}
+              magnification={magnification}
+              baseItemSize={baseItemSize}
+            >
+              <DockIcon>{item.icon}</DockIcon>
+              <DockLabel>{item.label}</DockLabel>
+            </DockItem>
+          ))}
+        </div>
       </div>
     </div>
   );
