@@ -22,8 +22,7 @@ export default function Hero() {
       </div>
 
       {/* Content: fill viewport minus header height */}
-      <div className="relative z-10 mx-auto max-w-6xl px-4
-                      min-h-[calc(100svh-4rem)] md:min-h-[calc(100dvh-4rem)]
+      <div className="relative z-10 mx-auto max-w-6xl px-4 min-h-[calc(100svh)] md:min-h-[calc(100dvh)]
                       flex items-center">
         <div>
           <p className="text-sm uppercase tracking-[0.3em] text-white/60">Portfolio</p>
