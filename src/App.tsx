@@ -12,9 +12,9 @@ export default function App() {
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
       <main>
         <Hero />
+        <Portfolio />
         <About />
         <Skills />
-        <Portfolio />
         <Contact />
       </main>
       <Footer />
