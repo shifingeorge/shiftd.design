@@ -81,21 +81,33 @@
   }
 
   /* Neon glow wrapper that uses your --brand color */
-  .neon-wrap {
+  .neon-stroke {
     position: relative;
+    border-radius: inherit;
   }
-  .neon-wrap::before {
+  .neon-stroke::after {
     content: '';
     position: absolute;
-    inset: -18%;
+    inset: 0;
     border-radius: inherit;
-    background:
-      radial-gradient(60% 60% at 50% 50%,
-        rgb(var(--brand) / 0.85) 0%,
-        rgb(var(--brand) / 0.35) 40%,
-        transparent 70%);
-    filter: blur(26px);
-    z-index: -1; /* sits behind the video */
+    pointer-events: none;
+    /* Outline (stroke) + glow using brand color */
+    box-shadow:
+      0 0 0 2px rgb(var(--brand) / 1),     /* crisp stroke */
+      0 0 12px rgb(var(--brand) / 0.65),   /* soft glow */
+      0 0 28px rgb(var(--brand) / 0.35),   /* wider glow */
+      inset 0 0 6px rgb(var(--brand) / 0.25); /* subtle inner light */
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .neon-stroke:hover::after {
+      box-shadow:
+        0 0 0 2px rgb(var(--brand) / 1),
+        0 0 14px rgb(var(--brand) / 0.75),
+        0 0 34px rgb(var(--brand) / 0.45),
+        inset 0 0 8px rgb(var(--brand) / 0.3);
+      transition: box-shadow 200ms ease;
+    }
   }
 }
 

@@ -29,8 +29,9 @@ export default function Hero() {
                       pb-[calc(72px+1rem)]">
         <div className="flex flex-col items-center gap-4 md:gap-6">
           {/* Logo video */}
-          <div className="neon-wrap h-24 w-24 md:h-28 md:w-28 lg:h-32 lg:w-32 overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
-          <LogoVideo
+          {/* Logo video with neon stroke (no background fill) */}
+          <div className="neon-stroke h-24 w-24 md:h-28 md:w-28 lg:h-32 lg:w-32 overflow-hidden rounded-2xl">
+            <LogoVideo
             src="/media/logo.mp4"
             poster="/media/logo-poster.jpg"
             className="h-full w-full object-cover"
