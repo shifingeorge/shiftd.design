@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import Dither from '../UI/Dither';
+import DecryptedText from '../UI/DecryptedText';
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -10,37 +11,58 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <Dither
           eventSourceRef={sectionRef}
-          waveColor={[0.5, 0.5, 0.5]}
           disableAnimation={false}
           enableMouseInteraction={true}
-          mouseRadius={0.3}
+          mouseRadius={0.32}
           colorNum={4}
-          waveAmplitude={0.3}
+          waveAmplitude={0.32}
           waveFrequency={3}
           waveSpeed={0.05}
         />
       </div>
 
-      {/* Content: fill viewport minus header height */}
-      <div className="relative z-10 mx-auto max-w-6xl px-4 min-h-[calc(100svh)] md:min-h-[calc(100dvh)]
-                      flex items-center">
-        <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-white/60">Portfolio</p>
-          <h1 className="mt-3 text-4xl font-bold leading-tight md:text-6xl">
-            UI/UX Designer <span className="text-white/60">&</span> Vibe Coder
-          </h1>
-          <p className="mt-4 max-w-2xl text-white/70">
-            I design delightful interfaces and code smooth, animated experiences.
-            Clean systems, high contrast, tasteful motion.
-          </p>
-          <div className="mt-8 flex gap-3">
-            <a href="#portfolio" className="rounded-md bg-white text-black px-5 py-3 text-sm font-semibold hover:opacity-90">
-              View Work
-            </a>
-            <a href="#contact" className="rounded-md border border-white/20 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">
-              Contact
-            </a>
-          </div>
+      {/* Content: bottom-left aligned, with padding above dock */}
+      <div
+        className="
+          relative z-10 mx-auto max-w-6xl px-4
+          min-h-[100svh] md:min-h-[100dvh]
+          flex items-end justify-start
+          pb-[calc(68px+1.5rem)]  /* keep clear of the dock (panelHeight 68 + margin) */
+        "
+      >
+        <div className="space-y-3 text-left">
+          <DecryptedText
+            as="h1"
+            text="Human‑first UI,"
+            className="block text-5xl md:text-8xl font-extrabold leading-[0.95] tracking-tight"
+            startOnView
+            startOnHover
+            oncePerSessionKey="hero-line-1"
+            direction="left"
+            duration={1100}
+          />
+          <DecryptedText
+            as="h1"
+            text="vibe‑coded."
+            className="block text-5xl md:text-8xl font-extrabold leading-[0.95] tracking-tight text-brand"
+            startOnView
+            startOnHover
+            oncePerSessionKey="hero-line-2"
+            direction="right"
+            duration={1200}
+            delay={120}
+          />
+          <DecryptedText
+            as="p"
+            text="Shiftd (Shifin) — product designer and vibe coder crafting calm, high‑contrast experiences."
+            className="text-base md:text-xl text-white/70 max-w-2xl"
+            startOnView
+            startOnHover
+            oncePerSessionKey="hero-sub"
+            direction="center"
+            duration={900}
+            delay={180}
+          />
         </div>
       </div>
     </section>
