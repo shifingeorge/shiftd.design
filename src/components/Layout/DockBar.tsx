@@ -22,12 +22,12 @@ export default function DockBar() {
 
   return (
     <Dock
-      items={items}
-      panelHeight={68}
-      baseItemSize={50}
-      magnification={70}
-      // className for subtle brand accent if you want:
-      className="border-brand/20"
+    items={items}
+    panelHeight={68}
+    baseItemSize={50}
+    magnification={70}
+    mobileCloseOnScroll={true}
+    mobileAutoCloseDelay={2500} // set 0 to disable
     />
   );
 }

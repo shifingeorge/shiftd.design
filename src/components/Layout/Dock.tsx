@@ -30,6 +30,9 @@ export type DockProps = {
   baseItemSize?: number;
   magnification?: number;
   spring?: Parameters<typeof useSpring>[1];
+  // Mobile-only behaviors
+  mobileCloseOnScroll?: boolean;     // default: true
+  mobileAutoCloseDelay?: number;     // default: 3000ms (set 0 or undefined to disable)
 };
 
 /* -------------------------------- Desktop Dock ------------------------------- */
@@ -156,7 +159,7 @@ function DesktopDock({
   return (
     <div
       className="fixed z-50 left-0 right-0 bottom-[max(1rem,env(safe-area-inset-bottom))] pointer-events-none hidden md:block"
-      aria-label="Application dock container"
+      aria-label="Application dock container (desktop)"
     >
       <div className="flex justify-center">
         <div
@@ -197,12 +200,18 @@ function DesktopDock({
 
 /* -------------------------------- Mobile Dock -------------------------------- */
 
-function MobileDock({ items, className = '' }: DockProps) {
+function MobileDock({
+  items,
+  className = '',
+  mobileCloseOnScroll = true,
+  mobileAutoCloseDelay = 3000,
+}: DockProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Close on click outside / Escape
+  // Close on outside click / touch / Escape — only while open
   useEffect(() => {
+    if (!open) return;
     function onDown(e: MouseEvent | TouchEvent) {
       if (!containerRef.current) return;
       if (!containerRef.current.contains(e.target as Node)) setOpen(false);
@@ -211,14 +220,29 @@ function MobileDock({ items, className = '' }: DockProps) {
       if (e.key === 'Escape') setOpen(false);
     }
     document.addEventListener('mousedown', onDown);
-    document.addEventListener('touchstart', onDown);
+    document.addEventListener('touchstart', onDown, { passive: true });
     document.addEventListener('keydown', onKey);
     return () => {
       document.removeEventListener('mousedown', onDown);
       document.removeEventListener('touchstart', onDown);
       document.removeEventListener('keydown', onKey);
     };
-  }, []);
+  }, [open]);
+
+  // Auto-close on scroll — only while open
+  useEffect(() => {
+    if (!open || !mobileCloseOnScroll) return;
+    const onScroll = () => setOpen(false);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [open, mobileCloseOnScroll]);
+
+  // Auto-close after delay — only while open
+  useEffect(() => {
+    if (!open || !mobileAutoCloseDelay || mobileAutoCloseDelay <= 0) return;
+    const id = window.setTimeout(() => setOpen(false), mobileAutoCloseDelay);
+    return () => window.clearTimeout(id);
+  }, [open, mobileAutoCloseDelay]);
 
   return (
     <div
@@ -273,7 +297,6 @@ function MobileDock({ items, className = '' }: DockProps) {
         onClick={() => setOpen((v) => !v)}
         className="w-14 h-14 inline-flex items-center justify-center rounded-full bg-[#0b0b0f] border border-white/10 text-white shadow-md"
       >
-        {/* Simple hamburger/close icon (inline SVG) */}
         {!open ? (
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -299,4 +322,4 @@ export default function Dock(props: DockProps) {
   );
 }
 
-export { DockLabel, DockIcon }; 
+export { DockLabel, DockIcon };
