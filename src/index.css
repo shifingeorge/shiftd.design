@@ -79,6 +79,24 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgb(var(--brand) / 0.15);
   }
+
+  /* Neon glow wrapper that uses your --brand color */
+  .neon-wrap {
+    position: relative;
+  }
+  .neon-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -18%;
+    border-radius: inherit;
+    background:
+      radial-gradient(60% 60% at 50% 50%,
+        rgb(var(--brand) / 0.85) 0%,
+        rgb(var(--brand) / 0.35) 40%,
+        transparent 70%);
+    filter: blur(26px);
+    z-index: -1; /* sits behind the video */
+  }
 }
 
 @layer utilities {
