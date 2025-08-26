@@ -10,13 +10,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      <div className="relative z-10 mx-auto max-w-2xl px-4 min-h-[100svh] md:min-h-[100dvh] flex items-center">
       <main>
         <Hero />
         <Portfolio />
         <Contact />
-      </main>
-      </div>
+      </main> 
       <Footer />
     </div>
   );
