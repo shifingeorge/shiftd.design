@@ -7,7 +7,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Contact() {
 
-  const iconClass = 'text-3xl sm:text-3xl md:text-8xl';
+  const iconClass = 'text-2xl sm:text-3xl md:text-8xl';
 
   const socials = useMemo(
     () => [
@@ -56,9 +56,6 @@ export default function Contact() {
             {/* Box 3: Socials with label */}
             <div className="neon-stroke aspect-square rounded-2xl overflow-hidden relative">
               <div className="pointer-events-none absolute left-3 top-3 z-10">
-                <span className="rounded-md bg-black/30 px-2.5 py-1 text-[10px] sm:text-xs md:text-sm uppercase tracking-widest text-white/80 ring-1 ring-white/10 backdrop-blur">
-                  Socials
-                </span>
               </div>
               <SocialFall
                 items={socials}
