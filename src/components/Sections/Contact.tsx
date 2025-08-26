@@ -7,7 +7,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Contact() {
 
-  const iconClass = 'text-5xl sm:text-4xl md:text-8xl';
+  const iconClass = 'text-3xl sm:text-3xl md:text-8xl';
 
   const socials = useMemo(
     () => [
@@ -39,7 +39,7 @@ export default function Contact() {
                 href="mailto:hello@yourdomain.com?subject=Hey%20there&body=Hi%20there%2C%20I%27d%20love%20to%20connect!"
                 ariaLabel="Email me"
                 strength={40}
-                className="uppercase tracking-wider"
+                className="uppercase tracking-wider !px-3 !py-2 !text-xs sm:!px-4 sm:!py-2.5 sm:!text-sm md:!px-6 md:!py-4 md:!text-base"
               >
                 Email me
               </MagneticButton>
