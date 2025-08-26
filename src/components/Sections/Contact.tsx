@@ -6,20 +6,23 @@ import { FaGithub, FaInstagram, FaMedium } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Contact() {
+
+  const iconClass = 'text-5xl sm:text-4xl md:text-8xl';
+
   const socials = useMemo(
     () => [
-      { id: 'gh', href: 'https://github.com/your-username', ariaLabel: 'GitHub', element: <FaGithub /> },
-      { id: 'ig', href: 'https://instagram.com/your-username', ariaLabel: 'Instagram', element: <FaInstagram /> },
-      { id: 'tw', href: 'https://x.com/your-username', ariaLabel: 'Twitter/X', element: <FaXTwitter /> },
-      { id: 'md', href: 'https://medium.com/@your-handle', ariaLabel: 'Medium', element: <FaMedium /> },
+      { id: 'gh', href: 'https://github.com/your-username', ariaLabel: 'GitHub', element: <FaGithub className={iconClass}/> },
+      { id: 'ig', href: 'https://instagram.com/your-username', ariaLabel: 'Instagram', element: <FaInstagram className={iconClass}/> },
+      { id: 'tw', href: 'https://x.com/your-username', ariaLabel: 'Twitter/X', element: <FaXTwitter className={iconClass}/> },
+      { id: 'md', href: 'https://medium.com/@your-handle', ariaLabel: 'Medium', element: <FaMedium className={iconClass}/> },
     ],
     []
   );
 
   return (
-    <section id="contact" className="pb-12 md:pb-16">
-      <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6 flex items-start pt-4 md:pt-6">
-        <div className="w-full">
+    <section id="contact" className="pt-8 md:pt-12 pb-12 md:pb-16">
+      <div className="relative z-10 w-full pl-8 pr-4 md:pl-16 md:pr-6 flex items-start">
+        <div className="w-full max-w-none">
           {/* Heading row (same style as Portfolio) */}
           <div className="mb-6 md:mb-8">
             <div className="flex items-center gap-3">
@@ -42,7 +45,7 @@ export default function Contact() {
               </MagneticButton>
             </div>
 
-            {/* Box 2: Social icons with label */}
+            {/* Box 2: Video */}
             <div className="neon-stroke aspect-square rounded-2xl overflow-hidden">
               <LogoVideo
                 src="/media/contact.mp4"
@@ -50,8 +53,7 @@ export default function Contact() {
               />
             </div>
 
-            {/* Box 3: unchanged */}
-
+            {/* Box 3: Socials with label */}
             <div className="neon-stroke aspect-square rounded-2xl overflow-hidden relative">
               <div className="pointer-events-none absolute left-3 top-3 z-10">
                 <span className="rounded-md bg-black/30 px-2.5 py-1 text-[10px] sm:text-xs md:text-sm uppercase tracking-widest text-white/80 ring-1 ring-white/10 backdrop-blur">
@@ -65,10 +67,9 @@ export default function Contact() {
                 restitution={0.9}
                 airFriction={0.02}
                 allowDrag={true}
-                className="bg-transparent"
+                className="bg-transparent "  
               />
             </div>
-            
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default function App() {
         <Hero />
         <Portfolio />
         <Contact />
-      </main> 
+      </main>
       <Footer />
     </div>
   );

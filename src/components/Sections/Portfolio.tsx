@@ -14,9 +14,9 @@ function platformLabel(p: Platform) {
 export default function Portfolio() {
   return (
     <section id="portfolio">
-      {/* Center the whole block in the viewport (like Hero) */}
-      <div className="relative z-10 mx-auto max-w-2xl px-4 min-h-[100svh] md:min-h-[100dvh] flex items-center">
-        <div className="w-full">
+      {/* Full-width with gutters, left-anchored */}
+      <div className="relative z-10 w-full pl-8 pr-4 md:pl-16 md:pr-6 min-h-[80svh] md:min-h-[80dvh] flex items-start md:items-center">
+        <div className="mr-auto w-full max-w-none">
           <div className="mb-6 md:mb-8">
             <div className="flex items-center gap-3">
               <h2 className="font-pixel text-xl md:text-2xl text-white/90">Portfolio</h2>
@@ -37,24 +37,24 @@ export default function Portfolio() {
                 whileTap={{ scale: 0.995 }}
                 transition={{ type: 'spring', stiffness: 280, damping: 20, mass: 0.4 }}
               >
-                {/* Meta row (apply pixel font like Hero) */}
+                {/* Meta row */}
                 <div className="mb-3 grid grid-cols-1 md:grid-cols-[64px_1fr_auto] items-baseline gap-2 md:gap-3 px-2 md:px-4">
                   <span className="font-pixel text-xs md:text-sm text-white/60">{p.year}</span>
                   <h3 className="font-pixel text-lg md:text-xl text-white/90">{p.title}</h3>
-                  <div className="hidden md:flex items-center gap-2 font-pixel text-[11px] md:text-xs text-white/60">
+                  <div className="hidden md:flex items-center gap-2 font-pixel text-xs md:text-sm text-white/70">
                     {p.roles.join(', ')}
                   </div>
-                  <p className="font-pixel md:col-span-3 text-sm md:text-base text-white/60">
+                  <p className="font-pixel md:col-span-3 text-base md:text-lg text-white/70">
                     {p.blurb}
                   </p>
                 </div>
 
-                {/* Card with single cover (taller) */}
+                {/* Card with taller cover */}
                 <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02]">
                   <img
                     src={p.cover}
                     alt={`${p.title} cover`}
-                    className="w-full h-[260px] md:h-[420px] object-cover rounded-3xl transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    className="w-full h-[340px] md:h-[520px] lg:h-[640px] object-cover rounded-3xl transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   />
 
                   {/* Frame + hover shadow */}
