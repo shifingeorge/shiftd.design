@@ -11,10 +11,10 @@ export default function Contact() {
 
   const socials = useMemo(
     () => [
-      { id: 'gh', href: 'https://github.com/your-username', ariaLabel: 'GitHub', element: <FaGithub className={iconClass}/> },
-      { id: 'ig', href: 'https://instagram.com/your-username', ariaLabel: 'Instagram', element: <FaInstagram className={iconClass}/> },
+      { id: 'gh', href: 'https://github.com/shifingeorge  ', ariaLabel: 'GitHub', element: <FaGithub className={iconClass}/> },
+      { id: 'ig', href: 'https://instagram.com/shiftd.growth', ariaLabel: 'Instagram', element: <FaInstagram className={iconClass}/> },
       { id: 'tw', href: 'https://x.com/your-username', ariaLabel: 'Twitter/X', element: <FaXTwitter className={iconClass}/> },
-      { id: 'md', href: 'https://medium.com/@your-handle', ariaLabel: 'Medium', element: <FaMedium className={iconClass}/> },
+      { id: 'md', href: 'https://medium.com/@shif.td', ariaLabel: 'Medium', element: <FaMedium className={iconClass}/> },
     ],
     []
   );
@@ -55,7 +55,7 @@ export default function Contact() {
 
             {/* Box 3: Socials with label */}
             <div className="neon-stroke aspect-square rounded-2xl overflow-hidden relative">
-              <div className="pointer-events-none absolute left-3 top-3 z-10">
+              <div className="pointer-events-none absolute left-3 top-3 z-10">  
               </div>
               <SocialFall
                 items={socials}

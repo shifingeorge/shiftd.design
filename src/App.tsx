@@ -9,7 +9,7 @@ export default function App() {
   useSmoothScroll({ lerp: 1.18, wheelMultiplier: 1, touchMultiplier: 1.1 });
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
+    <div className="relative min-h-screen bg-neutral-950 text-neutral-100">
       <main>
         <Hero />
         <Portfolio />
