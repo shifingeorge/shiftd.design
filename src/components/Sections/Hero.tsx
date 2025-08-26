@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import Dither from '../UI/Dither';
 import DecryptedText from '../UI/DecryptedText';
 import LogoVideo from '../UI/LogoVideo';
 
@@ -8,7 +7,7 @@ export default function Hero() {
 
   return (
     <section id="home" ref={sectionRef} className="relative">
-      {/* Background */}
+      {/* Background 
       <div className="absolute inset-0 z-0">
         <Dither
           eventSourceRef={sectionRef}
@@ -20,7 +19,7 @@ export default function Hero() {
           waveFrequency={3}
           waveSpeed={0.05}
         />
-      </div>
+      </div>*/}
 
       {/* Content: centered, minimal, with breathing room above the dock */}
       <div className="relative z-10 mx-auto max-w-3xl px-4
