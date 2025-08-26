@@ -1,5 +1,4 @@
 import useSmoothScroll from './hooks/useSmoothScroll';
-
 import Hero from './components/Sections/Hero';
 import Portfolio from './components/Sections/Portfolio';
 import Contact from './components/Sections/Contact';
