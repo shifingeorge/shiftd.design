@@ -17,7 +17,7 @@ export default function Contact() {
   );
 
   return (
-    <section id="contact">
+    <section id="contact" className="pb-12 md:pb-16">
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6 flex items-start pt-4 md:pt-6">
         <div className="w-full">
           {/* Heading row (same style as Portfolio) */}
@@ -29,7 +29,7 @@ export default function Contact() {
           </div>
 
           {/* Force 3 columns on all breakpoints */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+          <div className="grid grid-cols-3 gap-1.5 sm:gap-3 md:gap-4 lg:gap-6">
             {/* Box 1: Magnetic 'Email me' button */}
             <div className="neon-stroke aspect-square rounded-2xl overflow-hidden">
               <MagneticButton

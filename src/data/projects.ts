@@ -26,6 +26,17 @@ export const projects: Project[] = [
     accent: '#ef4444',
   },
   {
+    id: 'Restore-point-2025',
+    year: 2025,
+    title: 'Restore Point',
+    blurb: 'A landing page for a Laptop Repairing shop',
+    roles: ['UX/UI', 'Web dev', 'Vibe coding'],
+    cover: '/media/case-studies/restore-point/cover.png',
+    platform: 'Website',
+    url: 'https://www.restorepoint.co.in/',
+    accent: '#ef4444',
+  },
+  {
     id: 'Dresso-2024',
     year: 2024,
     title: 'Dresso',

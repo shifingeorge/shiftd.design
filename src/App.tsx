@@ -6,7 +6,7 @@ import Footer from './components/Layout/Footer';
 
 export default function App() {
   // Smooth scrolling (tweak lerp to change inertia: higher = snappier, lower = floatier)
-  useSmoothScroll({ lerp: 1.18, wheelMultiplier: 2, touchMultiplier: 1.1 });
+  useSmoothScroll({ lerp: 1.18, wheelMultiplier: 1, touchMultiplier: 1.1 });
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
