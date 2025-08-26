@@ -1,5 +1,5 @@
 // src/data/projects.ts
-export type Platform = 'behance' | 'medium' | 'dribbble' | 'site';
+export type Platform = 'behance' | 'medium' | 'dribbble' | 'site' | 'Website';
 
 export type Project = {
   id: string;
@@ -15,25 +15,25 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'native-ed-2024',
-    year: 2024,
-    title: 'Native Ed',
-    blurb: 'A website simplifying access to Native American educational resources.',
-    roles: ['UX/UI', 'Web dev', 'Branding'],
-    cover: '/media/case-studies/native-ed/cover.jpg',
-    platform: 'behance',
-    url: 'https://www.behance.net/your-native-ed',
+    id: 'Luna-Bloom-2025',
+    year: 2025,
+    title: 'Luna Bloom',
+    blurb: 'A landing page for a well aesthetic flower shop',
+    roles: ['UX/UI', 'Web dev', 'Vibe coding'],
+    cover: '/media/case-studies/native-ed/cover.png',
+    platform: 'Website',
+    url: 'https://lunabloom.in/',
     accent: '#ef4444',
   },
   {
-    id: 'calm-reads-2023',
-    year: 2023,
-    title: 'Calm Reads',
-    blurb: 'A distraction‑free reading experience with high contrast and rhythm.',
-    roles: ['Product', 'UX', 'UI'],
+    id: 'Dresso-2024',
+    year: 2024,
+    title: 'Dresso',
+    blurb: 'AI-Powered Style Companion — Smart Wardrobe, Effortless Fashion (Personal Project)',
+    roles: ['Product', 'UX', 'UI', 'Case Study'],
     cover: '/media/case-studies/calm-reads/cover.jpg',
     platform: 'medium',
-    url: 'https://medium.com/@you/calm-reads',
+    url: 'https://medium.com/@shif.td/dresso-ai-powered-fashion-companion-7cc2dca86a54',
   },
   // Add more…
 ];
