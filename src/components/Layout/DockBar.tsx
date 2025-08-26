@@ -9,8 +9,8 @@ function scrollToId(id: string) {
 export default function DockBar() {
   const items: DockItemData[] = [
     { icon: <VscHome size={18} />, label: 'Home', onClick: () => scrollToId('home') },
-    { icon: <VscAccount size={18} />, label: 'About', onClick: () => scrollToId('about') },
     { icon: <VscArchive size={18} />, label: 'Work', onClick: () => scrollToId('portfolio') },
+    { icon: <VscAccount size={18} />, label: 'About', onClick: () => scrollToId('about') },
     { icon: <VscSettingsGear size={18} />, label: 'Contact', onClick: () => scrollToId('contact') },
     {
       icon: <VscArrowUp size={18} />,

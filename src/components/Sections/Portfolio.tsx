@@ -17,7 +17,7 @@ export default function Portfolio() {
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
         <div className="mb-6 md:mb-8">
           <div className="flex items-center gap-3">
-            <h2 className="text-xl md:text-2xl font-semibold text-white/90">Portfolio</h2>
+            <h2 className="text-xs md:text-sm font-medium tracking-[0.16em] uppercase text-white/60">Portfolio</h2>
             <div className="h-px flex-1 bg-white/10" />
           </div>
         </div>

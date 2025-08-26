@@ -12,7 +12,7 @@ export default function About() {
           <div className="mt-6">
             <WordReveal
               as="p"
-              text="I’m Shiftd (Shifin) — a product designer and vibe coder crafting calm, high‑contrast interfaces. I blend systems thinking with motion so digital tools feel effortlessly clear. I prototype fast in React + TypeScript, shaping interactions with GSAP only where they add meaning. My work favors accessibility, performance, and small delights that make products feel human."
+              text="I’m Shifin — a product designer and vibe coder crafting calm, high‑contrast interfaces. I blend systems thinking with motion so digital tools feel effortlessly clear. My work favors accessibility, performance, and small delights that make products feel human."
               className="text-3xl md:text-4xl leading-[1.35] text-white/85 max-w-5xl"
               stagger={0.12}
               duration={1.25}
