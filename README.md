@@ -149,3 +149,54 @@ shiftd portfolio
 └─ vite.config.ts
 
 ```
+```
+shiftd portfolio
+├─ .bolt
+│  ├─ config.json
+│  └─ prompt
+├─ README.md
+├─ eslint.config.js
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.js
+├─ public
+│  └─ media
+│     ├─ case-studies
+│     │  ├─ dresso
+│     │  │  └─ cover.jpg
+│     │  └─ luna-bloom
+│     │     └─ cover.png
+│     ├─ contact.mp4
+│     └─ logo.mp4
+├─ src
+│  ├─ App.tsx
+│  ├─ components
+│  │  ├─ Layout
+│  │  │  ├─ Dock.tsx
+│  │  │  ├─ DockBar.tsx
+│  │  │  └─ Footer.tsx
+│  │  ├─ Sections
+│  │  │  ├─ Contact.tsx
+│  │  │  ├─ Hero.tsx
+│  │  │  └─ Portfolio.tsx
+│  │  └─ UI
+│  │     ├─ LogoVideo.tsx
+│  │     └─ SocialFall.tsx
+│  ├─ data
+│  │  ├─ projects.ts
+│  │  └─ skills.ts
+│  ├─ hooks
+│  │  └─ useSmoothScroll.ts
+│  ├─ index.css
+│  ├─ main.tsx
+│  ├─ types
+│  │  └─ index.ts
+│  └─ vite-env.d.ts
+├─ tailwind.config.js
+├─ tsconfig.app.json
+├─ tsconfig.json
+├─ tsconfig.node.json
+└─ vite.config.ts
+
+```

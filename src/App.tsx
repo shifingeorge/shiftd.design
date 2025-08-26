@@ -3,7 +3,6 @@ import Hero from './components/Sections/Hero';
 import Portfolio from './components/Sections/Portfolio';
 import Contact from './components/Sections/Contact';
 import Footer from './components/Layout/Footer';
-import DockBar from './components/Layout/DockBar';
 
 export default function App() {
   // Smooth scrolling (tweak lerp to change inertia: higher = snappier, lower = floatier)
@@ -19,7 +18,6 @@ export default function App() {
       </main>
       </div>
       <Footer />
-      <DockBar />
     </div>
   );
 }
