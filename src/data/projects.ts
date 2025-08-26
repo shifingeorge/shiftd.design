@@ -20,7 +20,7 @@ export const projects: Project[] = [
     title: 'Luna Bloom',
     blurb: 'A landing page for a well aesthetic flower shop',
     roles: ['UX/UI', 'Web dev', 'Vibe coding'],
-    cover: '/media/case-studies/native-ed/cover.png',
+    cover: '/media/case-studies/luna-bloom/cover.png',
     platform: 'Website',
     url: 'https://lunabloom.in/',
     accent: '#ef4444',
@@ -31,9 +31,8 @@ export const projects: Project[] = [
     title: 'Dresso',
     blurb: 'AI-Powered Style Companion — Smart Wardrobe, Effortless Fashion (Personal Project)',
     roles: ['Product', 'UX', 'UI', 'Case Study'],
-    cover: '/media/case-studies/calm-reads/cover.jpg',
+    cover: '/media/case-studies/dresso/cover.jpg',
     platform: 'medium',
     url: 'https://medium.com/@shif.td/dresso-ai-powered-fashion-companion-7cc2dca86a54',
-  },
-  // Add more…
+  }
 ];
