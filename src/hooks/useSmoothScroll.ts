@@ -11,12 +11,13 @@ type Options = {
   wheelMultiplier?: number; // scroll speed multiplier (wheel)
   touchMultiplier?: number; // scroll speed multiplier (touch)
 };
-
+{/*import useSmoothScroll from './hooks/useSmoothScroll';
+    useSmoothScroll({ lerp: 0.06, wheelMultiplier: , touchMultiplier: 1.13  }); */}
 export default function useSmoothScroll({
   enabled = true,
-  lerp = 1,
+  lerp = 0.12,
   wheelMultiplier = 1,
-  touchMultiplier = 1,
+  touchMultiplier = 1.2,
 }: Options = {}) {
   const lenisRef = useRef<Lenis | null>(null);
 
