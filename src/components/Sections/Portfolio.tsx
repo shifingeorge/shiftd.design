@@ -50,7 +50,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Card with single cover */}
-                <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02]">
+                <div className="relative overflow-hidden rounded-3xl bg-white/[0.02]">
                   <img
                     src={p.cover}
                     alt={`${p.title} cover`}
@@ -63,10 +63,10 @@ export default function Portfolio() {
 
                   {/* Platform badge */}
                   <div className="absolute right-3 top-3 z-20 flex items-center gap-2">
-                    <span className="rounded-full bg-black/40 backdrop-blur border border-white/10 px-2 py-1 text-[11px] text-white/80">
+                    <span className="rounded-full bg-black/40 backdrop-blur text-[11px] text-white/80">
                       {platformLabel(p.platform)}
                     </span>
-                    <span className="rounded-full bg-black/40 backdrop-blur border border-white/10 p-1 text-white/80">
+                    <span className="rounded-full bg-black/40 backdrop-blur text-white/80">
                       <ExternalLink size={16} />
                     </span>
                   </div>
