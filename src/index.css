@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&display=swap');
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
@@ -12,6 +15,12 @@
   --bg: 10 10 10;                /* site background (#0A0A0A) */
   --text: 245 245 245;           /* base text color */
   --nav-h: 4rem;                 /* fixed nav height (keep in sync with Navigation) */
+}
+:root { 
+  --font-bricolage: 'Bricolage Grotesque', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+}
+.font-bricolage { 
+  font-family: var(--font-bricolage); 
 }
 
 @layer base {

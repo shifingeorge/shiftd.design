@@ -1,37 +1,79 @@
-import { useRef } from 'react';
+import { useState, useEffect } from 'react';
 import LogoVideo from '../UI/LogoVideo';
+import Draggable from '../UI/Draggable';
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const [edit, setEdit] = useState(false);
+
+  // Optional: toggle edit with Cmd/Ctrl + Shift + D
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const mod = e.metaKey || e.ctrlKey;
+      if (mod && e.shiftKey && e.key.toLowerCase() === 'd') {
+        setEdit((v) => !v);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
-    <section id="home" ref={sectionRef} className="relative">
-      <div
-        className="
-          relative z-10 w-full pl-8 pr-4 md:pl-16 md:pr-6 min-h-[80svh] md:min-h-[80dvh]
-          flex items-center
-        "
-      >
-        {/* Left-anchored block, vertically centered */}
-        <div className="mr-auto w-full max-w-2xl flex flex-col items-start text-left gap-6 md:gap-8">
-          <div className="neon-stroke h-24 w-24 md:h-28 md:w-28 overflow-hidden rounded-2xl">
-            <LogoVideo
-              src="/media/logo.mp4"
-              poster="/media/logo-poster.jpg"
-              className="h-full w-full object-cover"
-            />
-          </div>
-
-          <div className="space-y-3">
-            <p className="font-pixel text-3xl md:text-4xl text-white/85 leading-tight">
-              Shifin a.k.a Shif.td
-            </p>
-            <p className="font-pixel text-xl md:text-2xl text-white/75 leading-relaxed">
-              Product designer & vibe coder crafting calm, high‑contrast interfaces.
-            </p>
-          </div>
-        </div>
+    <section
+      id="home"
+      className="relative min-h-[100svh] md:min-h-[100dvh] bg-[#000000] text-white overflow-hidden"
+    >
+      {/* Edit toggle UI */}
+      <div className="absolute right-4 top-4 md:right-6 md:top-6 z-20">
+        <button
+          onClick={() => setEdit((v) => !v)}
+          className={[
+            'rounded-full px-3 py-1.5 text-xs md:text-sm font-medium',
+            'bg-white/15 hover:bg-white/25 border border-white/20 backdrop-blur',
+          ].join(' ')}
+        >
+          {edit ? 'Done' : 'Edit layout'}
+        </button>
       </div>
+
+      {/* Top-left blurb */}
+      <Draggable
+        id="hero-blurb"
+        defaultPct={{ x: 6, y: 7 }}
+        disabled={!edit}
+        className={edit ? 'ring-1 ring-white/50 rounded-md p-1' : ''}
+      >
+        <div className="max-w-[28ch] font-bricolage font-semibold leading-tight text-2xl md:text-3xl">
+          Product designer & vibe coder
+          <br />
+          crafting calm, high-contrast
+          <br />
+          interfaces.
+        </div>
+      </Draggable>
+
+      {/* Center square (logo) */}
+      <Draggable
+        id="hero-square"
+        defaultPct={{ x: 46, y: 38 }}
+        disabled={!edit}
+        className={edit ? 'ring-1 ring-white/50 rounded-md' : ''}
+      >
+        <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-md overflow-hidden ring-4 ring-white/30 bg-white/20">
+          <LogoVideo src="/media/logo.mp4" className="h-full w-full object-cover" />
+        </div>
+      </Draggable>
+
+      {/* Big wordmark */}
+      <Draggable
+        id="hero-wordmark"
+        defaultPct={{ x: 8, y: 76 }}
+        disabled={!edit}
+        className={edit ? 'ring-1 ring-white/50 rounded-md px-1' : ''}
+      >
+        <h1 className="font-bricolage font-extrabold tracking-tight leading-none text-[18vw] md:text-[14vw]">
+          Shif.td
+        </h1>
+      </Draggable>
     </section>
   );
 }
